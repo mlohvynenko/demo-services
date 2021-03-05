@@ -1,0 +1,27 @@
+image: python:3.8-buster
+
+stages:
+  - demo_insurance
+
+before_script:  
+  - pip3 install aos-signer
+
+after_script:  
+   - cd $CI_PROJECT_DIR
+   - rm  demo_insurance/meta/private_key.pem
+   - rm  demo_insurance/service.tar.gz
+
+demo_insurance:
+  only:
+    refs: 
+     - insurance_demo_branch
+  tags:
+    - demo
+  stage: demo_insurance
+  script:  
+    - echo "-------   Start Build   -------"
+    - cd $CI_PROJECT_DIR/demo_insurance
+    - "sed -i \"s/service_uid:/service_uid: $DEMO_INSURANCE_ID/g\" ./meta/config.yaml"
+    - echo $GPG_PASSWORD | gpg --batch --yes --passphrase-fd 0 --output ./meta/private_key.pem ./meta/private_key.pem.gpg    
+    - aos-signer sign
+    - aos-signer upload
