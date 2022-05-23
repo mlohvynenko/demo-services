@@ -30,7 +30,7 @@ configuration:
     cmd: python3 /telemetry_emulator/sender_vis_genivi.py
 
     # Service working dir
-    workingDir: /home
+    workingDir: /
 
     #devices:
     #    - name : string (camera0, mic0, audio0, etc)
