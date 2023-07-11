@@ -36,7 +36,7 @@ configuration:
 #        startBurst: 3            # indicates number of attempt to start
 #        restartInterval: 'PT1S'  # indicates in which time (ISO 8601 duration) the service will be restarted after exit
     # Service working dir
-    workingDir: / #service working directory
+    workingDir: /
 
 #    devices:
 #        - name : string (camera0, mic0, audio0, etc)
