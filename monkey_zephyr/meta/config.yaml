@@ -23,30 +23,30 @@ configuration:
     # Startup command
     cmd: helloworld_xen-arm64
     instances:
-        minInstances: 1        # indicates minimal number of service's instances that should be run on Unit
-        priority: 20            # Priority of service instance (0-1000000000, 0 is the lowest priority), default value is 0
+        minInstances: 1 # indicates minimal number of service's instances that should be run on Unit
+        priority: 20 # Priority of service instance (0-1000000000, 0 is the lowest priority), default value is 0
         #labels:                # Labels where service instance should be run
         #    - xrunSupport_gen3
     runners:
         - xrun
     # Service working dir
-    workingDir:  / #service working directory
+    workingDir: / #service working directory
 
-#    resources:
-#        - gen3-dom0-resource
+    #resources:
+    #    - gen3-dom0-resource
 
     quotas:
-#        cpu: 50
+        #cpu: 50
         mem: 8MB
-#        state: 64KB
-#        storage: 64KB
-#        upload_speed: 32Kb
-#        download_speed: 32Kb
-#        upload: 1GB
-#        download: 1GB
-#        temp: 32KB
+        #state: 64KB
+        #storage: 64KB
+        #upload_speed: 32Kb
+        #download_speed: 32Kb
+        #upload: 1GB
+        #download: 1GB
+        #temp: 32KB
 
     env:
-       - RUNX_KERNEL=helloworld_xen-arm64
-       - RUNX_RAMDISK=
-       - PVCALLS_BACKEND=0
+        - RUNX_KERNEL=helloworld_xen-arm64
+        - RUNX_RAMDISK=
+        - PVCALLS_BACKEND=0
