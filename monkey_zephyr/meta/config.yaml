@@ -27,7 +27,8 @@ configuration:
         priority: 20            # Priority of service instance (0-1000000000, 0 is the lowest priority), default value is 0
         #labels:                # Labels where service instance should be run
         #    - xrunSupport_gen3
-    runner: xrun
+    runners:
+        - xrun
     # Service working dir
     workingDir:  / #service working directory
 
